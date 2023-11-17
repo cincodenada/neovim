@@ -473,6 +473,23 @@ Example: >
    autocmd User LspProgressUpdate redrawstatus
    autocmd User LspRequest redrawstatus
 <
+==============================================================================
+LSP SPECIFICATION TYPES                                             *lsp-spec*
+
+FormattingOptions                                          *FormattingOptions*
+   Generic options for formatters
+
+   Parameters: ~
+       {tabSize}                 (integer) Size of a tab in sapces
+       {insertSpaces}            (boolean) Prefer spaces over tabs
+       {trimTrailingWhitespace}  (boolean) Trim trailing whitespace on a line
+       {insertFinalNewline}      (boolean) Insert a newline character at the
+                                 end of the file if one does not exist.
+       {trimFinalNewlines}       (boolean) Trim all newlines after the final
+                                 newline at the end of the file
+   See also: ~
+     https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#formattingOptions
+
 
 ==============================================================================
 Lua module: vim.lsp                                                 *lsp-core*
@@ -1820,7 +1837,7 @@ set_level({level})                                   *vim.lsp.log.set_level()*
                 Sets the current log level.
 
                 Parameters: ~
-                    {level}  (string or number) One of `vim.lsp.log.levels`
+                    {level}  (string or number) One of `vim.lsp.log_levels`
 
 should_log({level})                                 *vim.lsp.log.should_log()*
                 Checks whether the level is sufficient for logging.
